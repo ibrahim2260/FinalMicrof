@@ -134,7 +134,7 @@ const MOOD_CONFIG: Record<Mood, MoodConfig> = {
     statsDivider:  "rgba(240,192,112,0.18)",
     chipIcon:      "🌅",
     particleType:  "motes",
-    subheadline:   "Water heaters and HVAC don't check the forecast. Whatever quits, whenever it quits — a decision in minutes, no hard credit check, all credit backgrounds welcome.",
+    subheadline:   "Breakdowns don't wait for bad weather — and you shouldn't have to wait for help. Lease-to-own financing with a decision in minutes and no hard credit check.",
     headlineSizer: "silent mini-split",
   },
 };
