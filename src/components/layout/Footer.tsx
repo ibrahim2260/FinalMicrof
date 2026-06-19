@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const COMPLIANCE = `The advertised service is lease-to-own or a rental- or lease-purchase agreement provided by Microf, LLC, or its affiliates. Acquiring ownership by leasing costs more than the retailer's cash price. Leasing available on select items at participating locations only. Not available in AK, HI, ME, MN, NJ, VT, WI, WY.`;
 
@@ -9,19 +10,25 @@ const footerLinks: Record<string, FooterLink[]> = {
     { href: "/homeowners", label: "How It Works" },
     { href: "/homeowners/hvac", label: "HVAC Financing" },
     { href: "/homeowners/water-heaters", label: "Water Heater Financing" },
+    { href: "/homeowners/challenged-credit", label: "Challenged Credit" },
     { href: "https://dealer.microf.com/", label: "Apply Now", external: true },
-    { href: "https://dealer.microf.com/payment", label: "Make a Payment", external: true },
+    { href: "https://invoicecloud.com/microf", label: "Make a Payment", external: true },
   ],
   Contractors: [
-    { href: "/contractors", label: "Partner With Us" },
+    { href: "/contractors", label: "Why Microf" },
+    { href: "/contractors/why-offer-financing", label: "Why Offer Financing" },
+    { href: "/contractors/become-a-partner", label: "Become a Partner" },
+    { href: "/contractors/testimonials", label: "Contractor Stories" },
     { href: "https://dealer.microf.com/", label: "Dealer Portal", external: true },
-    { href: "/contractors#enroll", label: "Enrollment" },
   ],
   Company: [
     { href: "/about", label: "About Microf" },
+    { href: "/about/press-releases", label: "Press Releases" },
+    { href: "/careers", label: "Careers" },
+    { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
-    { href: "/privacy", label: "Privacy Policy" },
-    { href: "/terms", label: "Terms of Use" },
+    { href: "/privacy-statement", label: "Privacy Statement" },
+    { href: "/terms-of-use", label: "Terms of Use" },
   ],
 };
 
@@ -75,27 +82,29 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--color-ocean)] text-white" role="contentinfo">
-      {/* Main footer grid */}
-      <div className="container-tight py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
-          {/* Brand column */}
-          <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-2 mb-5">
-              <div className="w-8 h-8 rounded-[6px] bg-[var(--color-ember)] flex items-center justify-center">
-                <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white" aria-hidden="true">
-                  <path d="M3 12L12 3L21 12V21H15V15H9V21H3V12Z" fill="currentColor" />
-                </svg>
-              </div>
-              <span className="text-xl font-bold" style={{ fontFamily: "var(--font-display)" }}>
-                microf
-              </span>
+    <footer style={{ background: "var(--color-brand-900)" }} className="text-white" role="contentinfo">
+
+      {/* Main footer body */}
+      <div className="container-tight py-16 lg:py-20">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-24">
+
+          {/* ── Brand column ─────────────────────────────────── */}
+          <div className="flex-shrink-0 lg:w-72 xl:w-80">
+            <Link href="/" className="inline-block mb-6" aria-label="Microf home">
+              <Image
+                src="/images/microf-logo-white.svg"
+                alt="Microf"
+                width={140}
+                height={48}
+                className="h-9 w-auto object-contain"
+              />
             </Link>
-            <p className="text-slate-300 text-sm leading-relaxed mb-5 max-w-xs">
+            <p className="text-sm leading-relaxed mb-6 max-w-xs" style={{ color: "rgba(255,255,255,0.50)" }}>
               Flexible lease-to-own financing for HVAC systems and water heaters. No credit check required. Serving homeowners and contractors across 43 states.
             </p>
-            {/* Socials */}
-            <div className="flex items-center gap-3">
+
+            {/* Social links */}
+            <div className="flex items-center gap-2 mb-8">
               {socials.map(({ name, href, icon }) => (
                 <a
                   key={name}
@@ -103,104 +112,134 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={name}
-                  className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors text-slate-300 hover:text-white"
+                  className="w-8 h-8 rounded-full bg-white/8 text-white/50 flex items-center justify-center transition-colors hover:bg-[var(--color-brand-500)] hover:text-white"
                 >
                   {icon}
                 </a>
               ))}
             </div>
 
-            {/* Association logos */}
-            <div className="mt-6">
-              <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-3">Industry Memberships</p>
-              <div className="flex flex-wrap gap-2">
-                {["ACCA", "HARDI", "EGIA", "AHR", "BBB"].map((org) => (
+            {/* Industry badges */}
+            <div>
+              <p
+                className="text-xs font-semibold uppercase tracking-widest mb-3"
+                style={{ color: "rgba(255,255,255,0.28)", letterSpacing: "0.12em" }}
+              >
+                Industry Memberships
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {["ACCA", "HARDI", "EGIA", "AHR", "BBB", "APRO", "W-HVACR"].map((org) => (
                   <span
                     key={org}
-                    className="px-2.5 py-1 rounded text-xs font-semibold bg-white/10 text-slate-300 border border-white/10"
+                    className="px-2.5 py-1 rounded-md text-xs font-semibold"
+                    style={{
+                      background: "rgba(255,255,255,0.05)",
+                      color: "rgba(255,255,255,0.40)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                    }}
                     title={`${org} Member`}
                   >
                     {org}
                   </span>
                 ))}
-                <span className="px-2.5 py-1 rounded text-xs font-semibold bg-white/10 text-slate-300 border border-white/10" title="Women in HVACR Member">
-                  W-HVACR
-                </span>
               </div>
             </div>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(footerLinks).map(([group, links]) => (
-            <div key={group}>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4" style={{ fontFamily: "var(--font-sans)", letterSpacing: "0.08em" }}>
-                {group}
-              </h3>
-              <ul className="flex flex-col gap-2.5">
-                {links.map(({ href, label, external }) => (
-                  <li key={href}>
-                    <Link
-                      href={href}
-                      target={external ? "_blank" : undefined}
-                      rel={external ? "noopener noreferrer" : undefined}
-                      className="text-sm text-slate-300 hover:text-white transition-colors"
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* ── Nav link columns — 3-up, evenly distributed ─── */}
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-6">
+            {Object.entries(footerLinks).map(([group, links]) => (
+              <div key={group}>
+                <p
+                  className="text-xs font-semibold uppercase tracking-widest mb-5"
+                  style={{ color: "rgba(255,255,255,0.32)", letterSpacing: "0.12em" }}
+                >
+                  {group}
+                </p>
+                <ul className="flex flex-col gap-3">
+                  {links.map(({ href, label, external }) => (
+                    <li key={`${group}-${href}`}>
+                      <Link
+                        href={href}
+                        target={external ? "_blank" : undefined}
+                        rel={external ? "noopener noreferrer" : undefined}
+                        className="text-sm text-white/50 hover:text-white transition-colors"
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
 
-      {/* Support bar */}
-      <div className="border-t border-white/10">
+      {/* ── Support bar ──────────────────────────────────────── */}
+      <div className="border-t border-white/8">
         <div className="container-tight py-6">
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-10">
             <div>
-              <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-1">Consumer Support</p>
-              <a href="tel:8556427631" className="text-white font-semibold hover:text-[var(--color-ember)] transition-colors">
+              <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.32)" }}>
+                Consumer Support
+              </p>
+              <a href="tel:8556427631" className="text-white font-semibold hover:text-[var(--color-brand-400)] transition-colors">
                 855-642-7631
               </a>
             </div>
             <div>
-              <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-1">Contractor Support</p>
-              <a href="tel:8554988200" className="text-white font-semibold hover:text-[var(--color-mint)] transition-colors">
+              <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.32)" }}>
+                Contractor Support
+              </p>
+              <a href="tel:8554988200" className="text-white font-semibold hover:text-[var(--color-brand-400)] transition-colors">
                 855-498-8200
               </a>
             </div>
             <div>
-              <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-1">Hours</p>
-              <p className="text-sm text-slate-300">Mon–Fri 8AM–8PM · Sat 9AM–2PM EST</p>
+              <p className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.32)" }}>
+                Hours
+              </p>
+              <p className="text-sm" style={{ color: "rgba(255,255,255,0.50)" }}>
+                Mon–Fri 8AM–8PM · Sat 9AM–2PM EST
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Legal bar */}
-      <div className="border-t border-white/10 bg-black/20">
+      {/* ── Legal bar ────────────────────────────────────────── */}
+      <div className="border-t border-white/6" style={{ background: "rgba(0,0,0,0.20)" }}>
         <div className="container-tight py-6">
           <div className="flex flex-col lg:flex-row gap-4 lg:items-start lg:justify-between">
             <div className="flex-1">
-              <p className="text-xs text-slate-400 leading-relaxed max-w-3xl">
+              <p className="text-xs leading-relaxed max-w-3xl" style={{ color: "rgba(255,255,255,0.32)" }}>
                 {COMPLIANCE}
               </p>
+              <div className="flex gap-4 mt-3">
+                <Link href="/privacy-statement" className="text-xs underline underline-offset-2 transition-colors" style={{ color: "rgba(255,255,255,0.32)" }}>
+                  Privacy Statement
+                </Link>
+                <Link href="/terms-of-use" className="text-xs underline underline-offset-2 transition-colors" style={{ color: "rgba(255,255,255,0.32)" }}>
+                  Terms of Use
+                </Link>
+              </div>
             </div>
-            <div className="flex-shrink-0 text-right">
-              <p className="text-xs text-slate-400">NMLS ID 1817969</p>
-              <p className="text-xs text-slate-500 mt-0.5">
+            <div className="flex-shrink-0 lg:text-right">
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.32)" }}>NMLS ID 1817969</p>
+              <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.24)" }}>
                 2849 Paces Ferry Rd SE, Suite 625<br />
                 Atlanta, GA 30339
               </p>
-              <p className="text-xs text-slate-500 mt-2">
+              <p className="text-xs mt-2" style={{ color: "rgba(255,255,255,0.24)" }}>
                 © {new Date().getFullYear()} Microf, LLC. All rights reserved.
               </p>
             </div>
           </div>
         </div>
       </div>
+
     </footer>
   );
 }

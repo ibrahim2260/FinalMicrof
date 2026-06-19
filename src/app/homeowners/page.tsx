@@ -1,362 +1,238 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
+import PageHero from "@/components/sections/PageHero";
+import HeroFintechCards from "@/components/ui/HeroFintechCards";
+import CTABand from "@/components/sections/CTABand";
 import FAQ from "@/components/sections/FAQ";
-import PaymentEstimator from "@/components/sections/PaymentEstimator";
-import FadeIn from "@/components/ui/FadeIn";
-import MobileApplyCTA from "@/components/ui/MobileApplyCTA";
-import { AuroraHero } from "@/components/ui/AuroraHero";
 
 export const metadata: Metadata = {
-  title: "For Homeowners — HVAC & Water Heater Financing",
+  title: "Homeowner Financing — Lease-to-Own HVAC & Water Heaters",
   description:
-    "No credit check. Instant approval. Flexible lease-to-own payments for HVAC systems and water heaters. Microf gets your home comfortable again — fast.",
+    "No credit check required. Lease-to-own HVAC systems and water heaters for homeowners. Real-time approval, flexible payments, and full ownership at the end of your term.",
   alternates: { canonical: "https://www.microf.com/homeowners" },
-  openGraph: {
-    title: "For Homeowners | Microf Lease-to-Own Financing",
-    description:
-      "No credit check required. Get approved for HVAC or water heater financing in minutes.",
-  },
 };
 
+const howItWorksSteps = [
+  { step: "1", title: "Apply online", body: "Complete a quick application — no hard credit check, no paperwork. Get a real-time decision in minutes." },
+  { step: "2", title: "Choose your payment", body: "Select a monthly payment option that works for your budget. Flexible terms available." },
+  { step: "3", title: "Installation scheduled", body: "Your contractor gets an instant alert. Installation can often happen the same day." },
+  { step: "4", title: "You own it", body: "Complete your lease term and the equipment is yours — no strings attached." },
+];
+
+const benefits = [
+  { title: "No credit check", body: "We welcome all credit backgrounds. A difficult credit history isn't a barrier with Microf." },
+  { title: "Real-time decisions", body: "Most applicants get a response in minutes — so your contractor can move forward without delay." },
+  { title: "Flexible payments", body: "Monthly lease payments designed to fit your actual budget, not what a bank thinks you can afford." },
+  { title: "Early payoff discounts", body: "Want to pay it off faster and save money? Microf offers early payoff discounts on all leases." },
+  { title: "Full ownership", body: "Complete your term and the equipment is 100% yours. Build equity in your home comfort system." },
+  { title: "Equipment covered", body: "HVAC systems, furnaces, heat pumps, and water heaters — all covered through participating contractors." },
+];
+
 const faqs = [
-  {
-    question: "Do I need good credit to qualify?",
-    answer:
-      "No. Microf does not require a hard credit check. We welcome homeowners with all credit backgrounds — including those who've been turned down by banks, credit unions, or other financing programs.",
-  },
-  {
-    question: "What's the difference between a lease-to-own and a regular loan?",
-    answer:
-      "A lease-to-own (or lease-purchase) agreement is not a loan. There's no interest rate in the traditional sense and no hard credit inquiry. Instead, you make monthly rental payments over the term of the agreement. At the end of the term, after all payments are made, you own the equipment outright. It's important to know that the total cost of acquiring ownership through leasing is higher than the cash price.",
-  },
-  {
-    question: "How long does the application take?",
-    answer:
-      "Most applications take 5 minutes or less. You'll submit basic information and receive a near-real-time decision. There's no waiting days for approval.",
-  },
-  {
-    question: "What payment terms are available?",
-    answer:
-      "Microf offers flexible lease terms typically ranging from 18 to 48 months. Your specific options will depend on the equipment cost and your lease agreement details.",
-  },
-  {
-    question: "Can I pay off early?",
-    answer:
-      "Yes, and it may save you money. Microf offers early payoff discounts that reduce the total amount you pay over the life of the lease. Contact Microf customer support for your specific early payoff options.",
-  },
-  {
-    question: "What if I need repairs after installation?",
-    answer:
-      "Equipment issues are handled between you and your contractor or the equipment manufacturer. The Microf lease covers the financing of the equipment — your contractor can advise on warranties included with the installation.",
-  },
+  { question: "Do I need good credit to qualify?", answer: "No. Microf's lease-to-own agreements do not require a traditional credit check. We serve homeowners with all credit backgrounds, including those who have been declined by banks." },
+  { question: "How long does the application take?", answer: "Most applicants complete the form in under 5 minutes and receive a real-time decision within minutes." },
+  { question: "What's the difference between a lease and a loan?", answer: "A lease-to-own agreement is not a loan. There is no interest rate in the traditional sense, and no hard credit inquiry. You make monthly lease payments, and once the term is complete, you own the equipment outright. The total cost of acquiring ownership through leasing is higher than a cash purchase, which is disclosed upfront." },
+  { question: "Can I pay off my lease early?", answer: "Yes. Microf offers early payoff discounts that reduce the total amount you pay. Contact your account manager or call consumer support for your current payoff quote." },
+  { question: "Which states are eligible?", answer: "Microf currently operates in 43 states. The program is not available in Alaska, Hawaii, Maine, Minnesota, New Jersey, Vermont, Wisconsin, or Wyoming." },
 ];
 
 export default function HomeownersPage() {
   return (
     <>
-      <Nav />
-      <main className="flex-1 pt-16">
+      <PageHero
+        eyebrow="For homeowners"
+        headline="Home comfort shouldn't depend on your credit score."
+        subhead="Lease-to-own HVAC systems and water heaters with no credit check required. Real-time approval, flexible monthly payments, and full ownership at the end of your term."
+        breadcrumbs={[{ label: "Homeowners" }]}
+        variant="dark"
+        rightSlot={<HeroFintechCards />}
+      />
 
-        {/* ── HERO — Aurora background ─────────────────────────────── */}
-        <AuroraHero />
+      <main id="main-content">
 
-        {/* ── THE EMERGENCY NARRATIVE ──────────────────────────────── */}
-        <section className="section-pad bg-white" aria-labelledby="emergency-heading">
+        {/* ── We understand the moment ─────────────────────────── */}
+        <section className="section-pad" style={{ background: "var(--color-brand-50)" }}>
           <div className="container-tight">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <FadeIn>
-                <div>
-                  <p className="text-sm font-semibold text-[var(--color-ember)] uppercase tracking-wider mb-3">We understand the moment</p>
-                  <h2 id="emergency-heading">It&apos;s 11pm. The AC just went out.</h2>
-                  <div className="mt-5 space-y-4 text-[var(--color-ink-70)] leading-relaxed">
-                    <p>
-                      You&apos;ve got kids in the house and it&apos;s 100 degrees outside. Your AC dies. You call your HVAC contractor, and they can replace the unit — but it&apos;s going to cost $4,000 to $6,000 that you don&apos;t have sitting in a checking account right now.
-                    </p>
-                    <p>
-                      You try the bank — denied. You try the credit card — limit too low. You feel stuck. You feel embarrassed.
-                    </p>
-                    <p>
-                      <strong className="font-semibold" style={{ color: "var(--color-ocean)" }}>You&apos;re not stuck. You&apos;re exactly who Microf was built for.</strong>
-                    </p>
-                    <p>
-                      A five-minute application. No hard credit check. Near-instant approval. Your contractor gets the green light — and your family gets cool.
-                    </p>
-                  </div>
-                </div>
-              </FadeIn>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-              <FadeIn delay={0.15}>
-                <div className="rounded-2xl overflow-hidden aspect-video relative shadow-[var(--shadow-warm-lg)]">
+              {/* Left: copy */}
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: "var(--color-brand-500)", letterSpacing: "0.15em" }}>
+                  We understand the moment
+                </p>
+                <h2
+                  className="text-balance mb-10"
+                  style={{
+                    color: "var(--color-ink)",
+                    fontSize: "clamp(2rem, 4vw, 3rem)",
+                    lineHeight: 1.1,
+                    letterSpacing: "-0.03em",
+                    fontWeight: 800,
+                  }}
+                >
+                  It&apos;s 6pm. The AC just went out.
+                </h2>
+
+                <div className="space-y-6">
+                  <p className="text-base leading-relaxed" style={{ color: "var(--color-slate)" }}>
+                    You&apos;ve got kids in the house and it&apos;s 100 degrees outside. Your AC dies. You call your HVAC contractor, and they can replace the unit — but it&apos;s going to cost $4,000 to $6,000 that you don&apos;t have sitting in a checking account right now.
+                  </p>
+                  <p className="text-base leading-relaxed" style={{ color: "var(--color-slate)" }}>
+                    You try the bank — denied. You try the credit card — limit too low. You feel stuck. You feel embarrassed.
+                  </p>
+                  <p
+                    className="text-lg leading-relaxed font-semibold"
+                    style={{
+                      color: "var(--color-ink)",
+                      borderLeft: "3px solid var(--color-brand-500)",
+                      paddingLeft: "1.25rem",
+                    }}
+                  >
+                    You&apos;re not stuck. You&apos;re exactly who Microf was built for.
+                  </p>
+                  <p className="text-base leading-relaxed" style={{ color: "var(--color-slate)" }}>
+                    A five-minute application. No hard credit check. Near-instant approval. Your contractor gets the green light — and your family gets cool.
+                  </p>
+                </div>
+              </div>
+
+              {/* Right: video */}
+              <div className="flex justify-center lg:justify-end">
+                <div
+                  className="w-full"
+                  style={{
+                    maxWidth: "440px",
+                    borderRadius: "24px",
+                    overflow: "hidden",
+                    boxShadow: "0 24px 64px rgba(11,20,17,0.12), 0 0 0 1px var(--color-brand-100)",
+                  }}
+                >
                   <video
                     autoPlay
                     muted
                     loop
                     playsInline
-                    preload="none"
-                    poster="/microdemo-poster.jpg"
-                    aria-label="Microf lease-to-own financing demo"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="w-full block"
                   >
-                    <source src="/microdemo.webm" type="video/webm" />
-                    <source src="/microdemo.mp4" type="video/mp4" />
+                    <source src="/videos/moment.mp4" type="video/mp4" />
                   </video>
                 </div>
-              </FadeIn>
+              </div>
+
             </div>
           </div>
         </section>
 
-        {/* ── ELIGIBILITY ──────────────────────────────────────────── */}
-        <section className="section-pad bg-[var(--color-base)]" aria-labelledby="eligibility-heading">
+        {/* Benefits grid */}
+        <section className="section-pad" style={{ background: "var(--color-white)" }}>
           <div className="container-tight">
-            <FadeIn>
-              <div className="text-center mb-12">
-                <p className="text-sm font-semibold text-[var(--color-ember)] uppercase tracking-wider mb-3">Who qualifies</p>
-                <h2 id="eligibility-heading">If you live in your home, you likely qualify</h2>
-                <p className="mt-3 text-[var(--color-ink-70)] max-w-2xl mx-auto leading-relaxed">
-                  Microf is designed to be accessible. Most homeowners who apply get approved — including many who&apos;ve been declined elsewhere.
-                </p>
-              </div>
-            </FadeIn>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
-              {[
-                { title: "Any credit background", desc: "No minimum credit score. No hard credit check. We look at more than a number.", icon: "🏦" },
-                { title: "Residential homeowners", desc: "Must be for equipment installed at your primary residence. Rental properties not eligible.", icon: "🏘️" },
-                { title: "43 states eligible", desc: "Available in most of the continental US. See excluded states below.", icon: "🗺️" },
-                { title: "Working with a Microf contractor", desc: "Equipment must be installed by a Microf-enrolled contractor. Ask your installer or find one near you.", icon: "🔧" },
-                { title: "New equipment installs", desc: "The Microf lease covers new HVAC or water heater installations — not repairs to existing equipment.", icon: "✨" },
-                { title: "Simple verification", desc: "Basic identity and address verification. No paystubs, tax returns, or bank statements required.", icon: "📄" },
-              ].map((item, i) => (
-                <FadeIn key={i} delay={i * 0.07}>
-                  <div className="bg-white rounded-xl p-5 border border-slate-100 hover:border-orange-100 transition-colors" style={{ boxShadow: "var(--shadow-warm-sm)" }}>
-                    <div className="text-2xl mb-3">{item.icon}</div>
-                    <h4 className="font-semibold text-[var(--color-ocean)] mb-1.5">{item.title}</h4>
-                    <p className="text-sm text-[var(--color-ink-70)] leading-relaxed">{item.desc}</p>
-                  </div>
-                </FadeIn>
-              ))}
+            <div className="text-center mb-14">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--color-brand-500)" }}>Why homeowners choose Microf</span>
+              <h2 className="text-balance">Everything you need. Nothing you don&apos;t.</h2>
             </div>
-          </div>
-        </section>
-
-        {/* ── LEASE vs LOAN ────────────────────────────────────────── */}
-        <section className="section-pad bg-white" aria-labelledby="comparison-heading">
-          <div className="container-tight">
-            <FadeIn>
-              <div className="text-center mb-12">
-                <p className="text-sm font-semibold text-[var(--color-ember)] uppercase tracking-wider mb-3">Plain English</p>
-                <h2 id="comparison-heading">Lease-to-own vs. a traditional loan</h2>
-                <p className="mt-3 text-[var(--color-ink-70)] max-w-xl mx-auto">
-                  No gotchas. Here&apos;s an honest comparison so you can make the right decision for your family.
-                </p>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.1}>
-              <div className="overflow-x-auto rounded-2xl border border-slate-100" style={{ boxShadow: "var(--shadow-warm-md)" }}>
-                <table className="w-full bg-white" aria-label="Lease-to-own vs. traditional loan comparison">
-                  <thead>
-                    <tr>
-                      <th className="text-left p-5 border-b border-slate-100 text-sm font-semibold text-[var(--color-smoke)] uppercase tracking-wider">Feature</th>
-                      <th className="text-center p-5 border-b border-slate-100">
-                        <span className="inline-block bg-[var(--color-ember)] text-white text-sm font-bold px-4 py-1 rounded-full">Microf Lease</span>
-                      </th>
-                      <th className="text-center p-5 border-b border-slate-100 text-sm font-semibold text-[var(--color-smoke)]">Traditional Loan</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      ["Credit check required", "No hard pull", "Hard credit inquiry"],
-                      ["Minimum credit score", "None", "Usually 620+"],
-                      ["Application time", "~5 minutes", "Days to weeks"],
-                      ["Decision speed", "Near-instant", "1–5 business days"],
-                      ["Own at end", "Yes, after all payments", "Yes, if no default"],
-                      ["Early payoff option", "Yes, with discounts", "Varies by lender"],
-                      ["Total cost vs. cash", "Higher (disclosed upfront)", "Varies by rate"],
-                    ].map(([feature, microf, loan], i) => (
-                      <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-slate-50"}>
-                        <td className="p-4 text-sm font-medium text-[var(--color-ink)]">{feature}</td>
-                        <td className="p-4 text-sm text-center">
-                          <span className="font-semibold text-[var(--color-ocean)]">{microf}</span>
-                        </td>
-                        <td className="p-4 text-sm text-center text-[var(--color-smoke)]">{loan}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-
-        {/* ── APPLICATION WALKTHROUGH ──────────────────────────────── */}
-        <section className="section-pad bg-[var(--color-base)]" aria-labelledby="walkthrough-heading">
-          <div className="container-tight">
-            <FadeIn>
-              <div className="text-center mb-14">
-                <p className="text-sm font-semibold text-[var(--color-ember)] uppercase tracking-wider mb-3">Step by step</p>
-                <h2 id="walkthrough-heading">How the application works</h2>
-              </div>
-            </FadeIn>
-
-            <div className="max-w-3xl mx-auto space-y-6">
-              {[
-                {
-                  step: "1",
-                  title: "Contact a Microf-enrolled contractor",
-                  desc: "Your HVAC or plumbing contractor needs to be enrolled with Microf. If yours isn't, encourage them to sign up — it takes minutes and is free for contractors.",
-                },
-                {
-                  step: "2",
-                  title: "Get the application link from your contractor",
-                  desc: "Your contractor will provide a link to start your application through the Microf portal, or you can apply directly at dealer.microf.com.",
-                },
-                {
-                  step: "3",
-                  title: "Complete the 5-minute application",
-                  desc: "Enter your basic information — name, address, contact details. No bank statements, no tax returns, no proof of income required in most cases.",
-                },
-                {
-                  step: "4",
-                  title: "Receive your near-instant decision",
-                  desc: "Most applicants get a decision in real time. If approved, you'll see your available lease options and can choose the monthly payment term that fits your budget.",
-                },
-                {
-                  step: "5",
-                  title: "Your contractor gets the green light",
-                  desc: "Microf notifies your contractor immediately upon approval. They can order equipment, schedule the job, and get to work — no waiting.",
-                },
-                {
-                  step: "6",
-                  title: "Equipment installed, payments begin",
-                  desc: "Once installation is complete and verified, your monthly lease payments begin. Contractor is funded by Microf within 24–48 business hours.",
-                },
-              ].map((item, i) => (
-                <FadeIn key={i} delay={i * 0.08}>
-                  <div className="flex gap-5 bg-white rounded-xl p-6 border border-slate-100" style={{ boxShadow: "var(--shadow-warm-sm)" }}>
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm" style={{ background: "var(--color-ember)" }}>
-                      {item.step}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-[var(--color-ocean)] mb-1">{item.title}</h4>
-                      <p className="text-sm text-[var(--color-ink-70)] leading-relaxed">{item.desc}</p>
-                    </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {benefits.map(({ title, body }) => (
+                <div key={title} className="rounded-2xl p-6 card-lift" style={{ background: "var(--color-paper)", border: "1px solid var(--color-line)" }}>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-4" style={{ background: "var(--color-brand-100)" }}>
+                    <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" aria-hidden="true">
+                      <path d="M3 8l4 4 6-6" stroke="var(--color-brand-500)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── PAYMENT ESTIMATOR ────────────────────────────────────── */}
-        <section className="section-pad bg-white" aria-labelledby="estimator-heading">
-          <div className="container-tight">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <FadeIn>
-                <div>
-                  <p className="text-sm font-semibold text-[var(--color-ember)] uppercase tracking-wider mb-3">Payment flexibility</p>
-                  <h2 id="estimator-heading">Find a payment that fits your life</h2>
-                  <p className="mt-4 text-[var(--color-ink-70)] leading-relaxed">
-                    Use the estimator to get a rough sense of monthly payments across different lease terms. Remember: your actual payment depends on your approved agreement and equipment cost.
-                  </p>
-                  <div className="mt-6 space-y-3">
-                    {["No interest rate to worry about", "Choose 18 to 48-month terms", "Early payoff discounts available", "Payment starts after installation"].map((item) => (
-                      <div key={item} className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0" style={{ background: "var(--color-mint)" }}>✓</div>
-                        <span className="text-sm text-[var(--color-ink-70)]">{item}</span>
-                      </div>
-                    ))}
-                  </div>
+                  <h3 className="text-base font-bold mb-2" style={{ color: "var(--color-ink)" }}>{title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-slate)" }}>{body}</p>
                 </div>
-              </FadeIn>
-              <FadeIn delay={0.15}>
-                <PaymentEstimator />
-              </FadeIn>
-            </div>
-          </div>
-        </section>
-
-        {/* ── PRODUCTS CTA ─────────────────────────────────────────── */}
-        <section className="section-pad bg-[var(--color-base)]" aria-label="Product links">
-          <div className="container-tight">
-            <FadeIn>
-              <div className="text-center mb-10">
-                <h2>What do you need to finance?</h2>
-              </div>
-            </FadeIn>
-            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              {[
-                { href: "/homeowners/hvac", title: "HVAC System", desc: "Air conditioners, furnaces, heat pumps, mini-splits", emoji: "❄️" },
-                { href: "/homeowners/water-heaters", title: "Water Heater", desc: "Tank, tankless, gas & electric water heaters", emoji: "🌊" },
-              ].map(({ href, title, desc, emoji }) => (
-                <FadeIn key={href} delay={0.1}>
-                  <Link
-                    href={href}
-                    className="group block bg-white rounded-2xl p-8 border border-slate-100 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-ember)]/30"
-                    style={{ boxShadow: "var(--shadow-warm-sm)" }}
-                  >
-                    <div className="text-4xl mb-4">{emoji}</div>
-                    <h3 className="text-xl font-semibold text-[var(--color-ocean)] mb-2">{title}</h3>
-                    <p className="text-sm text-[var(--color-ink-70)] mb-4">{desc}</p>
-                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-2.5 transition-all" style={{ color: "var(--color-ember)" }}>
-                      See details
-                      <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5" aria-hidden="true">
-                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
-                  </Link>
-                </FadeIn>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── FAQ ──────────────────────────────────────────────────── */}
-        <section className="section-pad bg-white" aria-labelledby="homeowner-faq-heading">
-          <div className="container-tight max-w-3xl mx-auto">
-            <FadeIn>
-              <div className="text-center mb-10">
-                <p className="text-sm font-semibold text-[var(--color-ember)] uppercase tracking-wider mb-3">Questions answered</p>
-                <h2 id="homeowner-faq-heading">Homeowner FAQs</h2>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <FAQ items={faqs} />
-            </FadeIn>
+        {/* How it works */}
+        <section className="section-pad" style={{ background: "var(--color-brand-50)" }}>
+          <div className="container-tight">
+            <div className="text-center mb-14">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--color-brand-500)" }}>The process</span>
+              <h2 className="text-balance">Simple from start to finish</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {howItWorksSteps.map(({ step, title, body }) => (
+                <div key={step} className="text-center">
+                  <div className="w-12 h-12 rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-lg" style={{ background: "var(--color-brand-500)", color: "white", fontFamily: "var(--font-display)" }}>
+                    {step}
+                  </div>
+                  <h3 className="font-bold mb-2" style={{ color: "var(--color-ink)", fontSize: "1rem" }}>{title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-slate)" }}>{body}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* ── BOTTOM CTA ───────────────────────────────────────────── */}
-        <section className="py-16 text-center" style={{ background: "var(--color-ocean)" }}>
-          <FadeIn>
-            <div className="container-tight">
-              <h2 className="text-white mb-4">Ready to get comfortable?</h2>
-              <p className="text-white/70 text-lg mb-8 max-w-lg mx-auto">
-                Apply now — five minutes, no credit check, near-instant decision.
+        {/* Products */}
+        <section className="section-pad" style={{ background: "var(--color-white)" }}>
+          <div className="container-tight">
+            <div className="text-center mb-12">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--color-brand-500)" }}>What we finance</span>
+              <h2 className="text-balance">HVAC &amp; water heater financing</h2>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {[
+                { title: "HVAC Systems", body: "Central air conditioners, furnaces, heat pumps, and ductless mini-splits. All residential HVAC replacements through participating contractors.", href: "/homeowners/hvac", cta: "HVAC financing details" },
+                { title: "Water Heaters", body: "Tank and tankless water heaters, gas and electric. Get a new unit installed today and pay monthly through your lease agreement.", href: "/homeowners/water-heaters", cta: "Water heater financing details" },
+              ].map(({ title, body, href, cta }) => (
+                <div key={title} className="rounded-3xl p-8 lg:p-10 card-lift" style={{ background: "var(--color-brand-50)", border: "1px solid var(--color-brand-100)" }}>
+                  <h3 className="text-2xl font-bold mb-3" style={{ color: "var(--color-ink)" }}>{title}</h3>
+                  <p className="leading-relaxed mb-6" style={{ color: "var(--color-slate)" }}>{body}</p>
+                  <Link href={href} className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all" style={{ color: "var(--color-brand-500)" }}>
+                    {cta}
+                    <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" aria-hidden="true">
+                      <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Challenged credit */}
+        <section className="section-pad" style={{ background: "var(--color-brand-900)" }}>
+          <div className="container-tight">
+            <div className="max-w-2xl mx-auto text-center">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "var(--color-brand-400)" }}>For challenged credit</span>
+              <h2 className="mb-4 text-balance" style={{ color: "white", fontWeight: 800, letterSpacing: "-0.03em" }}>Been turned down before? We say yes.</h2>
+              <p className="mb-8" style={{ color: "rgba(255,255,255,0.65)", fontSize: "1.125rem", lineHeight: 1.65 }}>
+                Microf was built for homeowners that traditional lenders overlook. No credit check means no hard inquiry — your score stays intact while you get the comfort you need.
               </p>
-              <Link
-                href="https://dealer.microf.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-white font-semibold px-10 py-4 rounded-full transition-all hover:-translate-y-0.5 text-base"
-                style={{ background: "var(--color-ember)" }}
-              >
-                Apply in Minutes
+              <Link href="/homeowners/challenged-credit" className="inline-flex items-center gap-2 text-sm font-semibold" style={{ color: "var(--color-brand-400)" }}>
+                Learn about challenged credit financing
                 <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" aria-hidden="true">
-                  <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </Link>
-              <p className="mt-4 text-white/40 text-sm">Consumer support: 855-642-7631 · Mon–Fri 8AM–8PM EST</p>
             </div>
-          </FadeIn>
+          </div>
         </section>
-      </main>
 
+        {/* FAQ */}
+        <section className="section-pad" style={{ background: "var(--color-white)" }}>
+          <div className="container-tight max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-balance">Common questions</h2>
+            </div>
+            <FAQ faqs={faqs} />
+          </div>
+        </section>
+
+        <CTABand phone="855-642-7631" />
+
+        <div className="py-4 px-6" style={{ background: "var(--color-brand-50)", borderTop: "1px solid var(--color-line)" }}>
+          <p className="text-xs text-center max-w-4xl mx-auto" style={{ color: "var(--color-muted)" }}>
+            The advertised service is lease-to-own or a rental- or lease-purchase agreement provided by Microf, LLC, or its affiliates. Acquiring ownership by leasing costs more than the retailer's cash price.
+          </p>
+        </div>
+      </main>
       <Footer />
-      <MobileApplyCTA />
     </>
   );
 }

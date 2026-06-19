@@ -3,64 +3,103 @@
 /* ─── Design Tokens ─────────────────────────────────────────────────── */
 
 @theme {
-  /* Colors */
-  --color-base:        #F8F4EE;
-  --color-base-50:     #FDFAF6;
-  --color-ocean:       #0C2D3F;
-  --color-ocean-80:    #1A4A62;
-  --color-ocean-mid:   #1A5572;
-  --color-ocean-light: #EBF4F8;
-  --color-ember:       #E8621A;
-  --color-ember-dark:  #C84D0E;
-  --color-ember-light: #FFF1E9;
-  --color-mint:        #16A87C;
-  --color-mint-dark:   #0E8A63;
-  --color-mint-light:  #E6F7F2;
-  --color-ink:         #1A1F2E;
-  --color-ink-70:      #4A5568;
-  --color-mist:        #EDF2F7;
-  --color-smoke:       #94A3B8;
-  --color-white:       #FFFFFF;
+  /* ── Microf Green Palette ─────────────────────────────── */
+  --color-brand-900: #08291F;   /* footer, dark hero sections              */
+  --color-brand-700: #0E5C3A;   /* deep green hover, dark accents          */
+  --color-brand-600: #14784A;   /* CTA hover state                         */
+  --color-brand-500: #1FA862;   /* PRIMARY — buttons, accents, links       */
+  --color-brand-400: #46C381;   /* light accent, icon strokes              */
+  --color-brand-100: #E6F6EC;   /* card tints, section backgrounds         */
+  --color-brand-50:  #F2FBF6;   /* very light tint backgrounds             */
 
-  /* Typography */
-  --font-display: var(--font-fraunces), 'Georgia', serif;
-  --font-sans:    var(--font-jakarta), 'system-ui', sans-serif;
+  /* ── Neutral Palette ─────────────────────────────────── */
+  --color-ink:    #0B1411;      /* near-black body + heading text          */
+  --color-slate:  #475A52;      /* secondary / caption text                */
+  --color-line:   #E4EAE7;      /* hairline borders, dividers              */
+  --color-paper:  #F8FAF9;      /* off-white page background               */
+  --color-white:  #FFFFFF;
+  --color-muted:  #9DB5AA;      /* placeholder, disabled                   */
 
-  /* Spacing scale */
-  --spacing-section: 6rem;
-  --spacing-section-sm: 4rem;
+  /* ── Legacy aliases — keep so existing components don't break ─ */
+  /* These map old blue-navy tokens → new green equivalents       */
+  --color-slate-dark:  #08291F;   /* → brand-900 (was deep navy)           */
+  --color-slate-80:    #0E5C3A;   /* → brand-700                           */
+  --color-slate-light: #E6F6EC;   /* → brand-100                           */
+  --color-linen:       #F8FAF9;   /* → paper                               */
+  --color-linen-50:    #FFFFFF;   /* → white                               */
+  --color-grove:       #1FA862;   /* PRIMARY CTA green (unchanged intent)  */
+  --color-grove-dark:  #14784A;   /* → brand-600                           */
+  --color-grove-light: #E6F6EC;   /* → brand-100                           */
+  --color-graphite:    #0B1411;   /* → ink                                 */
+  --color-graphite-70: #475A52;   /* → slate                               */
+  --color-sky:         #F2FBF6;   /* → brand-50                            */
+  --color-smoke:       #9DB5AA;   /* → muted                               */
+  --color-ocean:       #08291F;   /* → brand-900                           */
+  --color-ocean-80:    #0E5C3A;   /* → brand-700                           */
+  --color-ocean-mid:   #0E5C3A;   /* → brand-700                           */
+  --color-ocean-light: #E6F6EC;   /* → brand-100                           */
+  --color-ember:       #1FA862;   /* → brand-500                           */
+  --color-ember-dark:  #14784A;   /* → brand-600                           */
+  --color-ember-light: #E6F6EC;   /* → brand-100                           */
+  --color-mint:        #1FA862;   /* → brand-500                           */
+  --color-mint-dark:   #14784A;   /* → brand-600                           */
+  --color-mint-light:  #E6F6EC;   /* → brand-100                           */
+  --color-base:        #F8FAF9;   /* → paper                               */
+  --color-base-50:     #FFFFFF;   /* → white                               */
 
-  /* Radius */
+  /* ── Typography ─────────────────────────────────────── */
+  --font-display: var(--font-urbanist), 'system-ui', sans-serif;
+  --font-sans:    var(--font-dm-sans), 'system-ui', sans-serif;
+
+  /* ── Spacing scale ───────────────────────────────────── */
+  --spacing-section:    8rem;
+  --spacing-section-sm: 5rem;
+
+  /* ── Radius ──────────────────────────────────────────── */
   --radius-sm:   4px;
   --radius-md:   10px;
   --radius-lg:   16px;
   --radius-xl:   24px;
+  --radius-2xl:  32px;
   --radius-pill: 9999px;
 
-  /* Shadows */
-  --shadow-warm-sm:  0 1px 3px rgba(12, 45, 63, 0.08), 0 1px 2px rgba(12, 45, 63, 0.04);
-  --shadow-warm-md:  0 4px 16px rgba(12, 45, 63, 0.10), 0 2px 6px rgba(12, 45, 63, 0.06);
-  --shadow-warm-lg:  0 12px 40px rgba(12, 45, 63, 0.12), 0 4px 12px rgba(12, 45, 63, 0.08);
-  --shadow-warm-xl:  0 24px 64px rgba(12, 45, 63, 0.14), 0 8px 24px rgba(12, 45, 63, 0.08);
-  --shadow-ember:    0 8px 32px rgba(232, 98, 26, 0.28);
-  --shadow-mint:     0 8px 32px rgba(22, 168, 124, 0.28);
+  /* ── Shadows ──────────────────────────────────────────── */
+  --shadow-sm:    0 1px 3px rgba(11,20,17,0.07), 0 1px 2px rgba(11,20,17,0.04);
+  --shadow-md:    0 4px 16px rgba(11,20,17,0.09), 0 2px 6px rgba(11,20,17,0.05);
+  --shadow-lg:    0 12px 40px rgba(11,20,17,0.10), 0 4px 12px rgba(11,20,17,0.06);
+  --shadow-xl:    0 24px 64px rgba(11,20,17,0.12), 0 8px 24px rgba(11,20,17,0.07);
+  --shadow-green: 0 8px 32px rgba(31,168,98,0.28);
+  --shadow-card:  0 2px 8px rgba(11,20,17,0.06), 0 1px 2px rgba(11,20,17,0.04);
+
+  /* ── Legacy shadow aliases ──────────────────────────── */
+  --shadow-warm-sm: var(--shadow-sm);
+  --shadow-warm-md: var(--shadow-md);
+  --shadow-warm-lg: var(--shadow-lg);
+  --shadow-warm-xl: var(--shadow-xl);
+  --shadow-grove:   var(--shadow-green);
+
+  /* ── Border beam animation ───────────────────────────── */
+  --animate-border-beam: border-beam calc(var(--duration)*1s) infinite linear;
+  --shadow-ember:   var(--shadow-green);
+  --shadow-mint:    var(--shadow-green);
 }
 
-/* ─── shadcn/Wave Hero Color Aliases ───────────────────────────────── */
-/* The GlowyWavesHero reads these via getComputedStyle on the canvas    */
+/* ─── shadcn / Radix Color Aliases ─────────────────────────────────── */
 
 :root {
-  --background:         #0C2D3F;   /* ocean — hero canvas bg             */
-  --foreground:         #FFFFFF;   /* white — text & subtle waves        */
-  --primary:            #E8621A;   /* ember — dominant glow waves        */
-  --primary-foreground: #FFFFFF;
-  --accent:             #16A87C;   /* mint — secondary glow waves        */
-  --accent-foreground:  #FFFFFF;
-  --secondary:          #1A5572;   /* ocean-mid — depth waves            */
-  --secondary-foreground: #FFFFFF;
-  --muted:              #1A4A62;   /* ocean-80 — bg gradient bottom      */
-  --muted-foreground:   #94A3B8;
-  --border:             rgba(255,255,255,0.15);
+  --background:           #F8FAF9;
+  --foreground:           #0B1411;
+  --primary:              #1FA862;
+  --primary-foreground:   #FFFFFF;
+  --accent:               #1FA862;
+  --accent-foreground:    #FFFFFF;
+  --secondary:            #E6F6EC;
+  --secondary-foreground: #0B1411;
+  --muted:                #F2FBF6;
+  --muted-foreground:     #475A52;
+  --border:               #E4EAE7;
+  --input:                #E4EAE7;
+  --ring:                 #1FA862;
 }
 
 /* ─── Base Styles ───────────────────────────────────────────────────── */
@@ -76,11 +115,11 @@ html {
 }
 
 body {
-  background-color: var(--color-base);
+  background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -89,17 +128,17 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--color-ocean);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--color-ink);
 }
 
-h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; }
-h2 { font-size: clamp(1.875rem, 4vw, 3rem);  font-weight: 600; }
-h3 { font-size: clamp(1.5rem, 3vw, 2rem);    font-weight: 600; }
+h1 { font-size: clamp(2.75rem, 7vw, 5rem);   font-weight: 700; }
+h2 { font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 700; }
+h3 { font-size: clamp(1.5rem, 3vw, 2.125rem); font-weight: 600; }
 h4 { font-size: 1.25rem; font-weight: 600; }
 
-p { color: var(--color-ink-70); }
+p { color: var(--color-slate); }
 
 /* ─── Grain Overlay ─────────────────────────────────────────────────── */
 
@@ -109,7 +148,7 @@ p { color: var(--color-ink-70); }
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.025;
+  opacity: 0.018;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 150px 150px;
@@ -118,7 +157,7 @@ p { color: var(--color-ink-70); }
 /* ─── Focus States ──────────────────────────────────────────────────── */
 
 :focus-visible {
-  outline: 2px solid var(--color-ember);
+  outline: 2px solid var(--color-brand-500);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -126,32 +165,32 @@ p { color: var(--color-ink-70); }
 /* ─── Selection ─────────────────────────────────────────────────────── */
 
 ::selection {
-  background: rgba(232, 98, 26, 0.15);
-  color: var(--color-ocean);
+  background: rgba(31, 168, 98, 0.15);
+  color: var(--color-ink);
 }
 
 /* ─── Scrollbar ─────────────────────────────────────────────────────── */
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-base); }
-::-webkit-scrollbar-thumb { background: var(--color-smoke); border-radius: 3px; }
+::-webkit-scrollbar-track { background: var(--color-paper); }
+::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 3px; }
 
-/* ─── Utilities ─────────────────────────────────────────────────────── */
+/* ─── Layout Utilities ──────────────────────────────────────────────── */
 
 .section-pad {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: var(--spacing-section-sm);
+  padding-bottom: var(--spacing-section-sm);
 }
 
 @media (min-width: 768px) {
   .section-pad {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+    padding-top: var(--spacing-section);
+    padding-bottom: var(--spacing-section);
   }
 }
 
 .container-tight {
-  max-width: 72rem;
+  max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.5rem;
@@ -165,8 +204,103 @@ p { color: var(--color-ink-70); }
   }
 }
 
-.text-balance {
-  text-wrap: balance;
+.text-balance { text-wrap: balance; }
+.text-pretty  { text-wrap: pretty; }
+
+/* ─── Primary CTA Button (shimmer on hover) ─────────────────────────── */
+
+.btn-grove {
+  background: var(--color-brand-500);
+  background-image: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255,255,255,0.12) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: background-position 0.5s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.btn-grove:hover {
+  background-position: 0% 0;
+  box-shadow: var(--shadow-green);
+  transform: translateY(-2px);
+}
+
+/* ─── Card hover lift ────────────────────────────────────────────────── */
+
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ─── Diagonal section divider ──────────────────────────────────────── */
+
+.section-angle-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+
+.section-angle-top {
+  clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
+  margin-top: -3rem;
+  padding-top: calc(3rem + var(--spacing-section));
+}
+
+/* ─── Border beam ────────────────────────────────────────────────────── */
+
+@keyframes border-beam {
+  100% { offset-distance: 100%; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─── Logo marquee ───────────────────────────────────────────────────── */
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee-track-reverse {
+  animation: marquee-reverse 34s linear infinite;
+}
+
+.marquee-track-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Counter number animation ───────────────────────────────────────── */
+
+@keyframes count-reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.counter-reveal {
+  animation: count-reveal 0.7s ease-out both;
 }
 
 /* ─── Reduced Motion ────────────────────────────────────────────────── */
@@ -177,32 +311,12 @@ p { color: var(--color-ink-70); }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  .marquee-track {
+    animation: none;
+  }
 }
 
-/* ─── Aurora hero keyframes ─────────────────────────────────────── */
-
-@keyframes aurora1 {
-  0%   { transform: translate(0px,    0px);   }
-  50%  { transform: translate(220px,  160px); }
-  100% { transform: translate(-160px, 90px);  }
-}
-@keyframes aurora2 {
-  0%   { transform: translate(0px,    0px);    }
-  50%  { transform: translate(-200px, -120px); }
-  100% { transform: translate(140px,  210px);  }
-}
-@keyframes aurora3 {
-  0%   { transform: translate(0px,   0px);    }
-  50%  { transform: translate(170px, -190px); }
-  100% { transform: translate(-90px, 130px);  }
-}
-@keyframes aurora4 {
-  0%   { transform: translate(0px,    0px);    }
-  50%  { transform: translate(-220px, 90px);   }
-  100% { transform: translate(110px,  -160px); }
-}
-
-/* ─── Homeowner video panel — chevron right edge ────────────────── */
+/* ─── Microf chevron panel (kept from previous build) ───────────────── */
 
 @media (min-width: 1024px) {
   .microf-video-chevron {

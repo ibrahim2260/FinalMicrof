@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 164 52">
+  <!-- White box (for dark backgrounds) -->
+  <rect width="52" height="52" fill="white"/>
+  <!-- Green M inside box -->
+  <text x="26" y="41" text-anchor="middle"
+        font-family="'Arial Black', 'Arial Bold', Arial, Helvetica, sans-serif"
+        font-size="40" font-weight="900" fill="#1FA862">M</text>
+  <!-- White icrof wordmark -->
+  <text x="58" y="41"
+        font-family="'Arial Black', 'Arial Bold', Arial, Helvetica, sans-serif"
+        font-size="34" font-weight="900" fill="white">icrof</text>
+</svg>

@@ -4,80 +4,74 @@ import React from "react";
 import Link from "next/link";
 import FadeIn from "@/components/ui/FadeIn";
 
-// Aurora background adapted to Microf palette:
-//   Wave 1 — ocean blue   rgba(26, 85, 114, ...)
-//   Wave 2 — ember orange rgba(232, 98, 26,  ...)
-//   Wave 3 — ember warm   rgba(255, 122, 56, ...)
-//   Wave 4 — mint green   rgba(22, 168, 124, ...)
-
 export function AuroraHero() {
   return (
     <section
       className="relative overflow-hidden min-h-[85vh] flex items-center"
-      style={{ background: "#060C14" }}
+      style={{ background: "#070E17" }}
       aria-label="Homeowners hero"
     >
-      {/* ── Aurora blobs — each is a positioned, blurred element that physically moves ── */}
+      {/* ── Aurora blobs — grove-palette re-skin ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
 
-        {/* Blob 1 — ocean blue, top-left */}
+        {/* Blob 1 — slate blue, top-left */}
         <div
           className="absolute rounded-full"
           style={{
             width: 700, height: 560,
             top: "-10%", left: "5%",
-            background: "radial-gradient(ellipse at center, rgba(26,85,114,0.65) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, rgba(18,52,77,0.70) 0%, transparent 70%)",
             filter: "blur(72px)",
             animation: "aurora1 9s ease-in-out infinite alternate",
           }}
         />
 
-        {/* Blob 2 — ember orange, right */}
+        {/* Blob 2 — grove green, right */}
         <div
           className="absolute rounded-full"
           style={{
             width: 580, height: 460,
             top: "5%", right: "-5%",
-            background: "radial-gradient(ellipse at center, rgba(232,98,26,0.55) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, rgba(26,92,56,0.50) 0%, transparent 70%)",
             filter: "blur(80px)",
             animation: "aurora2 7s ease-in-out infinite alternate-reverse",
           }}
         />
 
-        {/* Blob 3 — warm amber, bottom-left */}
+        {/* Blob 3 — lighter grove, bottom-left */}
         <div
           className="absolute rounded-full"
           style={{
             width: 640, height: 500,
             bottom: "0%", left: "10%",
-            background: "radial-gradient(ellipse at center, rgba(255,122,56,0.42) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, rgba(26,92,56,0.35) 0%, transparent 70%)",
             filter: "blur(90px)",
             animation: "aurora3 11s ease-in-out infinite alternate",
           }}
         />
 
-        {/* Blob 4 — mint green, bottom-right */}
+        {/* Blob 4 — pale grove, bottom-right */}
         <div
           className="absolute rounded-full"
           style={{
             width: 520, height: 340,
             bottom: "10%", right: "10%",
-            background: "radial-gradient(ellipse at center, rgba(22,168,124,0.38) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, rgba(91,196,138,0.22) 0%, transparent 70%)",
             filter: "blur(80px)",
             animation: "aurora4 8s ease-in-out infinite alternate-reverse",
           }}
         />
 
-        {/* Vignette to ground the content */}
+        {/* Vignette */}
         <div
           className="absolute inset-0"
           style={{
-            background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 30%, rgba(6,12,20,0.55) 100%)",
+            background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 30%, rgba(7,14,23,0.55) 100%)",
           }}
         />
       </div>
 
-      {/* ── Hero content ─────────────────────────────────────────── */}
+      {/* ── Hero content ── */}
       <div className="relative z-10 container-tight w-full py-24 md:py-32">
         <div className="max-w-2xl">
 
@@ -101,9 +95,9 @@ export function AuroraHero() {
             <div
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 text-xs font-semibold uppercase tracking-wider"
               style={{
-                background: "rgba(232,98,26,0.15)",
-                border: "1px solid rgba(232,98,26,0.35)",
-                color: "#FF7A38",
+                background: "rgba(26,92,56,0.18)",
+                border: "1px solid rgba(91,196,138,0.35)",
+                color: "#5BC48A",
               }}
             >
               No credit check required
@@ -121,8 +115,8 @@ export function AuroraHero() {
               Broken equipment,{" "}
               <span
                 style={{
-                  color: "#FF7A38",
-                  textShadow: "0 0 32px rgba(232,98,26,0.55)",
+                  color: "#5BC48A",
+                  textShadow: "0 0 32px rgba(26,92,56,0.55)",
                 }}
               >
                 tight budget.
@@ -150,11 +144,7 @@ export function AuroraHero() {
                 href="https://dealer.microf.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 text-white font-semibold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 active:scale-[0.98] text-base"
-                style={{
-                  background: "#E8621A",
-                  boxShadow: "0 0 28px rgba(232,98,26,0.40), 0 4px 12px rgba(0,0,0,0.3)",
-                }}
+                className="btn-grove inline-flex items-center justify-center gap-2 text-white font-semibold px-8 py-4 rounded-full text-base"
               >
                 Apply Now — Free &amp; Fast
                 <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" aria-hidden="true">

@@ -1,447 +1,174 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
-import FadeIn from "@/components/ui/FadeIn";
-import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import PartnerForm from "./PartnerForm";
+import PageHero from "@/components/sections/PageHero";
+import CTABand from "@/components/sections/CTABand";
+import ContractorDashboard from "@/components/ui/ContractorDashboard";
 
 export const metadata: Metadata = {
-  title: "For Contractors — Partner With Microf | HVAC Financing",
+  title: "HVAC Contractor Financing Partner — Grow Your Business with Microf",
   description:
-    "Stop losing jobs to declined financing. Microf helps HVAC and plumbing contractors close more sales with higher approval rates and 24–48hr funding. Become a partner today.",
+    "Close more HVAC and water heater jobs with Microf's lease-to-own financing program. Higher approval rates, contractor funding in 24–48 hours, free enrollment.",
   alternates: { canonical: "https://www.microf.com/contractors" },
-  openGraph: {
-    title: "Contractor Partnership | Microf",
-    description: "Higher approval rates. 24–48hr funding. Stop losing sales to declined financing.",
-  },
 };
 
-const contractorTestimonials = [
-  {
-    quote: "Microf has become our go-to financing option. Their approval rates are genuinely better than anything else I've tried in 12 years of business. We close 25–30% more jobs because of it.",
-    name: "Derek W.",
-    company: "Delta Comfort HVAC",
-    location: "Charlotte, NC",
-  },
-  {
-    quote: "The dealer portal is clean and intuitive. I can check customer status, submit a job, and see funding confirmation all in one place. The support team actually answers when I call.",
-    name: "Lisa P.",
-    company: "Streamline Plumbing & Heating",
-    location: "Denver, CO",
-  },
-  {
-    quote: "I stopped losing water heater jobs to 'I can't afford it right now.' With Microf, I present the monthly payment option upfront and most customers say yes on the spot.",
-    name: "Carlos M.",
-    company: "ProTech Home Services",
-    location: "Dallas, TX",
-  },
-];
-
 const benefits = [
-  {
-    title: "Higher Approval Rates",
-    desc: "Microf approves customers that traditional financing rejects — challenged credit, limited history, past issues. More approvals mean more closed jobs for your business.",
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden="true">
-        <path d="M4 16L12 24L28 8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    title: "24–48 Hour Funding",
-    desc: "Once installation is confirmed, your business is funded within 24–48 business hours. Reliable, consistent, and built for contractors who can't wait weeks for payment.",
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden="true">
-        <circle cx="16" cy="16" r="12" stroke="currentColor" strokeWidth="2" />
-        <path d="M16 10v6l4 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    title: "Real-Time Approval Alerts",
-    desc: "You receive an instant notification when your customer is approved. Order equipment, schedule the job, and get to work — no waiting on callbacks.",
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden="true">
-        <path d="M6 10l10-6 10 6v12l-10 6-10-6V10z" stroke="currentColor" strokeWidth="2" />
-        <path d="M16 4v18M6 10l10 6M26 10l-10 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    title: "Dedicated Dealer Portal",
-    desc: "A clean, powerful web portal where you can manage customer applications, track job status, view funding timelines, and access your account — available 24/7.",
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden="true">
-        <rect x="4" y="6" width="24" height="20" rx="2" stroke="currentColor" strokeWidth="2" />
-        <path d="M4 12h24M10 18h4M18 18h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    title: "Dedicated Contractor Support",
-    desc: "A separate contractor support line (855-498-8200) staffed Mon–Fri 8AM–8PM and Sat 9AM–2PM EST by people who understand your business.",
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden="true">
-        <path d="M8 4h4l2 6-3 2a14 14 0 006 6l2-3 6 2v4a2 2 0 01-2 2A20 20 0 016 6a2 2 0 012-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    title: "Free to Enroll",
-    desc: "There's no cost to become a Microf dealer partner. Sign up, complete the brief onboarding, and start offering Microf to your customers immediately.",
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6" aria-hidden="true">
-        <path d="M16 4l3 9h9l-7 5 3 9-8-5-8 5 3-9-7-5h9l3-9z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
+  { title: "More approvals, more closes", body: "Offer financing to customers who don't qualify for traditional loans. Microf's lease-to-own program approves customers that banks turn down." },
+  { title: "Funded in 24–48 hours", body: "Once installation is verified, your contractor payment is deposited within 24–48 business hours — no waiting around." },
+  { title: "Free to enroll", body: "Joining the Microf dealer network costs nothing. Sign up, complete brief training, and start offering next-day." },
+  { title: "Real-time customer decisions", body: "Your customer applies on-site and gets an instant decision. No delays, no waiting for callbacks." },
+  { title: "Easy dealer portal", body: "Manage applications, track funding, and support customers from one clean dashboard." },
+  { title: "Dedicated contractor support", body: "A direct contractor support line staffed by real people. Call us — we pick up." },
 ];
 
-const enrollmentSteps = [
-  {
-    step: "01",
-    title: "Submit Your Application",
-    desc: "Fill out the partner interest form below with your basic business information. The entire process takes about 5 minutes.",
-  },
-  {
-    step: "02",
-    title: "Quick Onboarding",
-    desc: "A Microf representative will reach out to complete your enrollment. You'll get access to the dealer portal and training resources.",
-  },
-  {
-    step: "03",
-    title: "Offer to Your Customers",
-    desc: "Start presenting Microf as a payment option to homeowners who need financing. Share the application link directly or guide them through the portal.",
-  },
-  {
-    step: "04",
-    title: "Get Funded Fast",
-    desc: "Customer gets approved, you complete the installation, and Microf funds your business within 24–48 business hours. Simple.",
-  },
+const steps = [
+  { num: "01", title: "Enroll for free", body: "Complete a quick enrollment application and brief training. No cost, no commitment." },
+  { num: "02", title: "Present to customers", body: "When a customer can't pay upfront, offer Microf as a payment option on the spot." },
+  { num: "03", title: "Customer applies", body: "Your customer completes a simple application. Real-time decision in minutes." },
+  { num: "04", title: "You get paid", body: "Complete the installation and funding hits your account within 24–48 business hours." },
+];
+
+const stats = [
+  { value: "24–48 hrs", label: "Contractor funding" },
+  { value: "Free", label: "Enrollment cost" },
+  { value: "1,000+", label: "Active partners" },
+  { value: "30%+", label: "Avg. close rate lift" }, // TODO: confirm with client
 ];
 
 export default function ContractorsPage() {
   return (
     <>
-      <Nav />
-      <main className="flex-1 pt-16">
+      <PageHero
+        eyebrow="For HVAC contractors"
+        headline="Stop losing jobs to financing declines."
+        subhead="Join the Microf dealer network and offer lease-to-own financing to every customer — even those with challenged credit. Close more jobs, get funded faster."
+        primaryCta={{ label: "Become a Partner — Free", href: "/contractors/become-a-partner" }}
+        secondaryCta={{ label: "Contractor Login", href: "https://dealer.microf.com/", external: true }}
+        breadcrumbs={[{ label: "Contractors" }]}
+        variant="green"
+        rightSlot={<ContractorDashboard />}
+      />
 
-        {/* ── HERO ─────────────────────────────────────────────────── */}
-        <section
-          className="relative overflow-hidden py-20 md:py-28"
-          style={{ background: "linear-gradient(135deg, var(--color-ink) 0%, #1A2535 100%)" }}
-        >
-          <div
-            className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full opacity-10 pointer-events-none"
-            style={{ background: "radial-gradient(circle, var(--color-mint) 0%, transparent 60%)", transform: "translate(20%, -30%)" }}
-          />
-          <div
-            className="absolute inset-0 opacity-[0.04] pointer-events-none"
-            style={{
-              backgroundImage: "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
-              backgroundSize: "50px 50px",
-            }}
-          />
-          <div className="container-tight relative z-10">
-            <div className="max-w-2xl">
-              <FadeIn>
-                <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 text-xs font-semibold uppercase tracking-wider" style={{ background: "rgba(22,168,124,0.15)", color: "var(--color-mint)", border: "1px solid rgba(22,168,124,0.25)" }}>
-                  For HVAC & Plumbing Contractors
+      <main id="main-content">
+        {/* Stats bar */}
+        <section style={{ background: "var(--color-brand-900)" }}>
+          <div className="container-tight py-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:divide-x divide-white/15">
+              {stats.map(({ value, label }) => (
+                <div key={label} className="text-center lg:px-6">
+                  <p className="text-2xl font-extrabold text-white mb-0.5" style={{ fontFamily: "var(--font-display)" }}>{value}</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.45)" }}>{label}</p>
                 </div>
-              </FadeIn>
-              <FadeIn delay={0.1}>
-                <h1 className="text-white mb-5">
-                  Stop losing jobs to<br />
-                  <span style={{ color: "var(--color-mint)" }}>declined financing</span>
-                </h1>
-              </FadeIn>
-              <FadeIn delay={0.2}>
-                <p className="text-lg text-white/75 leading-relaxed mb-8">
-                  Every time a homeowner gets rejected for traditional financing, you lose the job. Microf&apos;s higher approval rates mean more closed installs, faster funding, and a partnership that grows your revenue.
-                </p>
-              </FadeIn>
-              <FadeIn delay={0.3}>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a
-                    href="#partner-form"
-                    className="inline-flex items-center justify-center gap-2 text-white font-semibold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 text-base"
-                    style={{ background: "var(--color-mint)" }}
-                  >
-                    Become a Partner — Free
-                  </a>
-                  <Link
-                    href="https://dealer.microf.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 text-white font-semibold px-8 py-4 rounded-full transition-all text-base"
-                    style={{ border: "1px solid rgba(255,255,255,0.20)" }}
-                  >
-                    Dealer Portal Login
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits */}
+        <section className="section-pad" style={{ background: "var(--color-white)" }}>
+          <div className="container-tight">
+            <div className="text-center mb-14">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--color-brand-500)" }}>The Microf advantage</span>
+              <h2 className="text-balance">Built for contractors who want to close more</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {benefits.map(({ title, body }) => (
+                <div key={title} className="rounded-2xl p-6 card-lift" style={{ background: "var(--color-paper)", border: "1px solid var(--color-line)" }}>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-4" style={{ background: "var(--color-brand-100)" }}>
+                    <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" aria-hidden="true">
+                      <path d="M3 8l4 4 6-6" stroke="var(--color-brand-500)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-base font-bold mb-2" style={{ color: "var(--color-ink)" }}>{title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-slate)" }}>{body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How enrollment works */}
+        <section className="section-pad" style={{ background: "var(--color-brand-50)" }}>
+          <div className="container-tight">
+            <div className="text-center mb-14">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--color-brand-500)" }}>Getting started</span>
+              <h2 className="text-balance">From enrollment to first deal in 4 steps</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {steps.map(({ num, title, body }) => (
+                <div key={num} className="rounded-2xl p-6 text-center" style={{ background: "var(--color-white)", border: "1px solid var(--color-line)" }}>
+                  <span className="inline-block text-3xl font-extrabold mb-4" style={{ color: "var(--color-brand-100)", fontFamily: "var(--font-display)" }}>{num}</span>
+                  <h3 className="font-bold mb-2" style={{ color: "var(--color-ink)", fontSize: "1rem" }}>{title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-slate)" }}>{body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonial */}
+        <section className="section-pad" style={{ background: "var(--color-brand-900)" }}>
+          <div className="container-tight max-w-3xl mx-auto text-center">
+            <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10 mx-auto mb-6 opacity-40" aria-hidden="true">
+              <path d="M10 28c0-6.627 4.477-12 10-12v4c-3.314 0-6 2.686-6 6v8H6V28h4zM30 28c0-6.627 4.477-12 10-12v4c-3.314 0-6 2.686-6 6v8H26V28h4z" fill="white"/>
+            </svg>
+            <blockquote>
+              <p className="text-xl leading-relaxed text-white mb-8">
+                &ldquo;Microf has closed at least 30% more of my installs this year. Customers who used to walk away because of financing now say yes. The portal is clean, funding hits fast, and their contractor support team actually picks up the phone.&rdquo;
+              </p>
+            </blockquote>
+            <p className="font-semibold text-white">Derek W.</p>
+            <p className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>HVAC Contractor, Owner — Charlotte, NC</p>
+            <div className="flex justify-center gap-0.5 mt-3">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} viewBox="0 0 16 16" fill="var(--color-brand-500)" className="w-4 h-4" aria-hidden="true">
+                  <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.08L8 10.5l-3.71 1.96L5 8.42 2 5.5l4.15-.75L8 1z"/>
+                </svg>
+              ))}
+            </div>
+            <div className="mt-8">
+              <Link href="/contractors/testimonials" className="text-sm font-semibold" style={{ color: "var(--color-brand-400)" }}>
+                Read more contractor stories →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Secondary links */}
+        <section className="section-pad" style={{ background: "var(--color-white)" }}>
+          <div className="container-tight">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {[
+                { title: "Why offer financing?", body: "The data on close rates, average order value, and customer retention when you offer lease-to-own at the point of decision.", href: "/contractors/why-offer-financing", cta: "See the case for financing" },
+                { title: "Contractor success stories", body: "Real results from HVAC and plumbing contractors who've grown their business with Microf.", href: "/contractors/testimonials", cta: "Read contractor stories" },
+              ].map(({ title, body, href, cta }) => (
+                <div key={title} className="rounded-3xl p-8 lg:p-10 card-lift" style={{ background: "var(--color-brand-50)", border: "1px solid var(--color-brand-100)" }}>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: "var(--color-ink)" }}>{title}</h3>
+                  <p className="leading-relaxed mb-6" style={{ color: "var(--color-slate)" }}>{body}</p>
+                  <Link href={href} className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all" style={{ color: "var(--color-brand-500)" }}>
+                    {cta}
+                    <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" aria-hidden="true">
+                      <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </Link>
                 </div>
-              </FadeIn>
-            </div>
-          </div>
-        </section>
-
-        {/* ── STATS ────────────────────────────────────────────────── */}
-        <section className="bg-white border-b border-slate-100 py-12" aria-label="Partnership statistics">
-          <div className="container-tight">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { value: 43, suffix: " states", label: "Active in" },
-                { value: 48, suffix: "hr", label: "Max funding time" },
-                { value: 0, suffix: "", prefix: "$", label: "Cost to enroll" },
-                { value: 0, suffix: " credit check", label: "Required from your customers", prefix: "No hard" },
-              ].map(({ value, suffix, label, prefix }, i) => (
-                <FadeIn key={i} delay={i * 0.1} direction="up">
-                  <div className="text-center">
-                    <div className="text-3xl md:text-4xl font-bold text-[var(--color-ocean)] mb-1 leading-none" style={{ fontFamily: "var(--font-display)" }}>
-                      {prefix && <span>{prefix} </span>}
-                      <AnimatedCounter end={value} suffix={suffix} />
-                    </div>
-                    <p className="text-sm text-[var(--color-smoke)]">{label}</p>
-                  </div>
-                </FadeIn>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── BENEFITS ─────────────────────────────────────────────── */}
-        <section className="section-pad bg-[var(--color-base)]" aria-labelledby="contractor-benefits-heading">
-          <div className="container-tight">
-            <FadeIn>
-              <div className="text-center mb-12">
-                <p className="text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--color-mint)" }}>Why Microf</p>
-                <h2 id="contractor-benefits-heading">Built for contractors who want to grow</h2>
-                <p className="mt-3 text-[var(--color-ink-70)] max-w-xl mx-auto">
-                  Microf is a true partner, not just a financing middleman. Here&apos;s what you get when you sign up.
-                </p>
-              </div>
-            </FadeIn>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {benefits.map((benefit, i) => (
-                <FadeIn key={i} delay={i * 0.08}>
-                  <div className="bg-white rounded-xl p-6 border border-slate-100 hover:border-[var(--color-mint)]/30 hover:shadow-[var(--shadow-warm-md)] transition-all" style={{ boxShadow: "var(--shadow-warm-sm)" }}>
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ background: "var(--color-mint-light)", color: "var(--color-mint)" }}>
-                      {benefit.icon}
-                    </div>
-                    <h3 className="font-semibold text-[var(--color-ocean)] mb-2">{benefit.title}</h3>
-                    <p className="text-sm text-[var(--color-ink-70)] leading-relaxed">{benefit.desc}</p>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── HOW ENROLLMENT WORKS ─────────────────────────────────── */}
-        <section className="section-pad bg-white" aria-labelledby="enrollment-heading">
-          <div className="container-tight">
-            <FadeIn>
-              <div className="text-center mb-14">
-                <p className="text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--color-mint)" }}>Simple onboarding</p>
-                <h2 id="enrollment-heading">Enrolled and offering Microf in 4 steps</h2>
-              </div>
-            </FadeIn>
-
-            <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-              {enrollmentSteps.map((item, i) => (
-                <FadeIn key={i} delay={i * 0.1} direction="up">
-                  <div className="text-center">
-                    <div className="text-5xl font-bold mb-4 leading-none" style={{ fontFamily: "var(--font-display)", color: "var(--color-mist)" }}>
-                      {item.step}
-                    </div>
-                    <h3 className="font-semibold text-[var(--color-ocean)] mb-2 text-base">{item.title}</h3>
-                    <p className="text-sm text-[var(--color-ink-70)] leading-relaxed">{item.desc}</p>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── DEALER PORTAL PREVIEW ────────────────────────────────── */}
-        <section className="section-pad bg-[var(--color-base)]" aria-label="Dealer portal preview">
-          <div className="container-tight">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <FadeIn>
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--color-mint)" }}>Your command center</p>
-                  <h2>A portal built for how you work</h2>
-                  <p className="mt-4 text-[var(--color-ink-70)] leading-relaxed mb-6">
-                    The Microf dealer portal gives you everything in one place. No spreadsheets, no chasing callbacks, no confusion about where a job stands.
-                  </p>
-                  <div className="space-y-3">
-                    {[
-                      "Submit customer applications",
-                      "Track approval status in real time",
-                      "View funding timelines per job",
-                      "Access account history and statements",
-                      "Download resources and training materials",
-                    ].map((item) => (
-                      <div key={item} className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0" style={{ background: "var(--color-mint)" }}>✓</div>
-                        <span className="text-sm text-[var(--color-ink)]">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <Link
-                      href="https://dealer.microf.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-full transition-all text-sm"
-                      style={{ background: "var(--color-mint)", color: "white" }}
-                    >
-                      Visit Dealer Portal
-                    </Link>
-                  </div>
-                </div>
-              </FadeIn>
-
-              <FadeIn delay={0.15}>
-                {/* Portal preview mockup */}
-                <div className="rounded-2xl overflow-hidden border border-slate-200" style={{ boxShadow: "var(--shadow-warm-xl)" }}>
-                  <div className="h-10 bg-slate-800 flex items-center gap-2 px-4">
-                    <div className="flex gap-1.5">
-                      <div className="w-3 h-3 rounded-full bg-red-400" />
-                      <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                      <div className="w-3 h-3 rounded-full bg-green-400" />
-                    </div>
-                    <div className="flex-1 mx-4 h-5 bg-slate-700 rounded text-xs flex items-center px-2 text-slate-400">
-                      dealer.microf.com
-                    </div>
-                  </div>
-                  <div className="bg-white p-6">
-                    <div className="flex items-center justify-between mb-5">
-                      <div>
-                        <p className="font-bold text-[var(--color-ocean)] text-sm">Dealer Dashboard</p>
-                        <p className="text-xs text-[var(--color-smoke)]">Welcome back, {"{Contractor Name}"}</p>
-                      </div>
-                      <div className="w-8 h-8 rounded-full bg-[var(--color-mint)] flex items-center justify-center text-white font-bold text-xs">DC</div>
-                    </div>
-                    <div className="grid grid-cols-3 gap-3 mb-5">
-                      {[
-                        { label: "This Month", value: "12", unit: "approvals" },
-                        { label: "Pending", value: "3", unit: "jobs" },
-                        { label: "Funded", value: "$24,800", unit: "YTD" },
-                      ].map(({ label, value, unit }) => (
-                        <div key={label} className="bg-slate-50 rounded-lg p-3 text-center">
-                          <p className="text-lg font-bold text-[var(--color-ocean)]" style={{ fontFamily: "var(--font-display)" }}>{value}</p>
-                          <p className="text-xs text-[var(--color-smoke)]">{unit}</p>
-                          <p className="text-[10px] text-slate-400 mt-0.5">{label}</p>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="space-y-2">
-                      {[
-                        { name: "Johnson Residence", status: "Funded", color: "var(--color-mint)" },
-                        { name: "Williams Install", status: "Approved", color: "var(--color-ocean)" },
-                        { name: "Martinez — Pending", status: "In Review", color: "var(--color-ember)" },
-                      ].map(({ name, status, color }) => (
-                        <div key={name} className="flex items-center justify-between py-2 border-b border-slate-100 last:border-0">
-                          <span className="text-xs font-medium text-[var(--color-ink)]">{name}</span>
-                          <span className="text-xs font-semibold px-2 py-0.5 rounded-full" style={{ color, background: `${color}15` }}>
-                            {status}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
-            </div>
-          </div>
-        </section>
-
-        {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
-        <section className="section-pad bg-white" aria-labelledby="contractor-testimonials-heading">
-          <div className="container-tight">
-            <FadeIn>
-              <div className="text-center mb-12">
-                <p className="text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--color-mint)" }}>From the field</p>
-                <h2 id="contractor-testimonials-heading">What contractors say</h2>
-              </div>
-            </FadeIn>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {contractorTestimonials.map((t, i) => (
-                <FadeIn key={i} delay={i * 0.1}>
-                  <div className="bg-[var(--color-base)] rounded-xl p-6 border border-slate-100 flex flex-col" style={{ boxShadow: "var(--shadow-warm-sm)" }}>
-                    <div className="flex gap-0.5 mb-4">
-                      {[1,2,3,4,5].map((s) => (
-                        <svg key={s} viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 text-[var(--color-ember)]" aria-hidden="true">
-                          <path d="M8 1l1.854 3.754L14 5.519l-3 2.927.708 4.133L8 10.573l-3.708 1.946L5 8.446 2 5.519l4.146-.765L8 1z" />
-                        </svg>
-                      ))}
-                    </div>
-                    <blockquote className="flex-1">
-                      <p className="text-sm text-[var(--color-ink-70)] leading-relaxed italic mb-4">&ldquo;{t.quote}&rdquo;</p>
-                      <footer>
-                        <cite className="not-italic">
-                          <p className="font-semibold text-sm text-[var(--color-ocean)]">{t.name}</p>
-                          <p className="text-xs text-[var(--color-smoke)]">{t.company} · {t.location}</p>
-                        </cite>
-                      </footer>
-                    </blockquote>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── PARTNER FORM ─────────────────────────────────────────── */}
-        <section
-          id="partner-form"
-          className="section-pad"
-          style={{ background: "linear-gradient(135deg, var(--color-ink) 0%, #1e2d3d 100%)" }}
-          aria-labelledby="form-heading"
-        >
-          <div className="container-tight">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
-              <FadeIn>
-                <div className="text-white">
-                  <p className="text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--color-mint)" }}>Get started today</p>
-                  <h2 className="text-white mb-5" id="form-heading">Become a Microf partner</h2>
-                  <p className="text-white/70 leading-relaxed mb-8">
-                    Fill out the form and a Microf representative will reach out within 1 business day to complete your enrollment. There&apos;s no cost, no obligation, and no long-term contract required.
-                  </p>
-                  <div className="space-y-4">
-                    {[
-                      { icon: "✓", text: "Free to join — no setup fees" },
-                      { icon: "✓", text: "Onboarding support included" },
-                      { icon: "✓", text: "Instant access to dealer portal" },
-                      { icon: "✓", text: "Dedicated contractor support line" },
-                    ].map(({ icon, text }) => (
-                      <div key={text} className="flex items-center gap-3">
-                        <span className="w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0" style={{ background: "var(--color-mint)" }}>{icon}</span>
-                        <span className="text-sm text-white/70">{text}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-8 p-5 rounded-xl" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)" }}>
-                    <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: "var(--color-mint)" }}>Contractor Support</p>
-                    <a href="tel:8554988200" className="text-xl font-bold text-white hover:text-[var(--color-mint)] transition-colors">
-                      855-498-8200
-                    </a>
-                    <p className="text-xs text-white/40 mt-1">Mon–Fri 8AM–8PM · Sat 9AM–2PM EST</p>
-                  </div>
-                </div>
-              </FadeIn>
-
-              <FadeIn delay={0.15}>
-                <PartnerForm />
-              </FadeIn>
-            </div>
-          </div>
-        </section>
+        <CTABand
+          headline="Ready to close more jobs?"
+          body="Free enrollment, real-time decisions, and contractor funding in 24–48 business hours."
+          primaryLabel="Become a Partner — Free"
+          primaryHref="/contractors/become-a-partner"
+          primaryExternal={false}
+          secondaryLabel="Call Contractor Support"
+          secondaryHref="tel:8554988200"
+          phone="855-498-8200"
+          variant="dark"
+        />
       </main>
-
       <Footer />
     </>
   );

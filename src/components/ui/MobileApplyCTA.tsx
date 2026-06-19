@@ -26,7 +26,7 @@ export default function MobileApplyCTA() {
             href="https://dealer.microf.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full bg-[var(--color-ember)] hover:bg-[var(--color-ember-dark)] text-white font-semibold py-3.5 rounded-full transition-colors text-sm"
+            className="btn-grove flex items-center justify-center gap-2 w-full text-white font-semibold py-3.5 rounded-full text-sm"
           >
             Apply Now — No Credit Check Required
             <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" aria-hidden="true">

@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
+import { Urbanist, DM_Sans } from "next/font/google";
 import "./globals.css";
+import CookieConsent from "@/components/ui/CookieConsent";
 
-const fraunces = Fraunces({
+const urbanist = Urbanist({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-urbanist",
   display: "swap",
-  axes: ["opsz", "SOFT", "WONK"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  variable: "--font-dm-sans",
   display: "swap",
   weight: ["400", "500", "600", "700"],
 });
@@ -72,16 +73,31 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${jakarta.variable} h-full antialiased`}
+      className={`${urbanist.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col grain">
-        {children}
-        <Script
-          src="https://widgets.leadconnectorhq.com/loader.js"
-          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="6a2b13ef0e65563548b74c60"
-          strategy="afterInteractive"
+      <head>
+        {/* Google Tag Manager — GTM-58VW3ZC */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-58VW3ZC');`,
+          }}
         />
+      </head>
+      <body className="min-h-full flex flex-col grain">
+        {/* GTM noscript fallback */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-58VW3ZC"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
+        {children}
+
+        <CookieConsent />
+
       </body>
     </html>
   );
