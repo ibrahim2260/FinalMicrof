@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Urbanist, DM_Sans } from "next/font/google";
 import "./globals.css";
-import CookieConsent from "@/components/ui/CookieConsent";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -95,8 +93,6 @@ export default function RootLayout({
         </noscript>
 
         {children}
-
-        <CookieConsent />
 
       </body>
     </html>
