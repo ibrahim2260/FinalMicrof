@@ -33,7 +33,7 @@ export default function CTABand({
       aria-label="Call to action"
     >
       <div className="container-tight text-center">
-        <h2 className="text-white text-balance mb-4" style={{ fontWeight: 800 }}>
+        <h2 className="text-balance mb-4" style={{ fontWeight: 800, color: "white" }}>
           {headline}
         </h2>
         {body && (

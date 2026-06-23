@@ -79,13 +79,13 @@ export default function WhyOfferFinancingPage() {
           <div className="container-tight">
             <div className="text-center mb-14">
               <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--color-brand-400)" }}>Objections answered</span>
-              <h2 className="text-white text-balance">We&apos;ve heard every reason not to offer financing.</h2>
+              <h2 className="text-balance" style={{ color: "white", fontWeight: 800 }}>We&apos;ve heard every reason not to offer financing.</h2>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {objections.map(({ objection, reality }) => (
                 <div key={objection} className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                  <p className="text-sm font-semibold text-white mb-2">&ldquo;{objection}&rdquo;</p>
-                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>{reality}</p>
+                  <p className="text-sm font-bold mb-2" style={{ color: "white" }}>&ldquo;{objection}&rdquo;</p>
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>{reality}</p>
                 </div>
               ))}
             </div>

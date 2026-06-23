@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/sections/PageHero";
 import CTABand from "@/components/sections/CTABand";
@@ -85,15 +86,36 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Leadership placeholder */}
+        {/* Leadership */}
         <section className="section-pad" style={{ background: "var(--color-white)" }}>
           <div className="container-tight">
-            <div className="text-center mb-12">
+            <div className="text-center mb-14">
               <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--color-brand-500)" }}>Our team</span>
               <h2 className="text-balance">Leadership</h2>
-              <p className="mt-4 text-lg max-w-xl mx-auto" style={{ color: "var(--color-slate)" }}>
-                TODO: Add leadership team profiles with photos, names, and titles. Confirm with client.
-              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
+              {[
+                { name: "Zenon Olbrys", title: "Chief Executive Officer", src: "/images/zenon-headshot.jpeg" },
+                { name: "John Wheeler", title: "Chief Financial Officer", src: "/images/john-headshot.jpeg" },
+                { name: "Jeremy Sykes", title: "Head of Marketing", src: "/images/jeremy-headshot.png" },
+              ].map(({ name, title, src }) => (
+                <div key={name} className="flex flex-col items-center text-center">
+                  <div
+                    className="w-40 h-40 rounded-2xl overflow-hidden mb-5"
+                    style={{ boxShadow: "var(--shadow-md)" }}
+                  >
+                    <Image
+                      src={src}
+                      alt={name}
+                      width={160}
+                      height={160}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <p className="font-bold text-base mb-1" style={{ color: "var(--color-ink)" }}>{name}</p>
+                  <p className="text-sm" style={{ color: "var(--color-slate)" }}>{title}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

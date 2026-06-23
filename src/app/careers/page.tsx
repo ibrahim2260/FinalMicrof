@@ -18,7 +18,7 @@ const benefits = [
 ];
 
 const openRoles = [
-  { title: "Senior Software Engineer — Platform", dept: "Engineering", location: "Remote / Atlanta", type: "Full-time" },
+  { title: "Collections Specialist", dept: "Finance", location: "Atlanta, GA", type: "Full-time" },
   { title: "Dealer Success Manager", dept: "Sales", location: "Remote", type: "Full-time" },
   { title: "Customer Support Specialist", dept: "Support", location: "Atlanta, GA", type: "Full-time" },
   { title: "Credit & Risk Analyst", dept: "Finance", location: "Atlanta, GA", type: "Full-time" },

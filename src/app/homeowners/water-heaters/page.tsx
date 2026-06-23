@@ -70,7 +70,7 @@ export default function WaterHeatersPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
                 <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "var(--color-brand-400)" }}>The Microf advantage</span>
-                <h2 className="text-white mb-6 text-balance">When cold water hits, Microf moves fast.</h2>
+                <h2 className="mb-6 text-balance" style={{ color: "white", fontWeight: 800 }}>When cold water hits, Microf moves fast.</h2>
                 <p className="leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.65)" }}>
                   A failed water heater isn&apos;t something you can plan around. Microf&apos;s real-time approval process means you can go from application to installation in hours — not days.
                 </p>

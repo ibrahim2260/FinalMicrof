@@ -165,6 +165,80 @@ If you've been turned down elsewhere, or if you simply want to preserve your sav
     `,
   },
   {
+    slug: "what-to-do-when-your-hvac-breaks-and-you-cant-afford-it",
+    title: "What to Do When Your HVAC Breaks and You Can't Afford to Replace It",
+    excerpt:
+      "Your AC dies in August and the bank says no. Here's a step-by-step guide for homeowners navigating an emergency HVAC replacement without traditional credit.",
+    date: "June 2024",
+    isoDate: "2024-06-05",
+    author: "Microf Team",
+    authorRole: "Microf, LLC",
+    category: "Homeowners",
+    readTime: "4 min read",
+    content: `
+## Don't Panic — You Have Options
+
+An emergency HVAC failure is stressful. But before you resign yourself to waiting weeks or draining your savings, understand that lease-to-own financing exists precisely for this situation.
+
+## Step 1: Get a Contractor on the Phone Today
+
+Don't delay. Most HVAC contractors offer same-day or next-day assessments for emergency situations. Getting a quote quickly gives you the numbers you need to explore your options. Ask if they partner with Microf or offer lease-to-own financing.
+
+## Step 2: Apply for Lease-to-Own Financing
+
+If your contractor is a Microf partner, ask them to send you an application link. The form takes about five minutes and does not require a hard credit check. Most decisions come back in minutes.
+
+## Step 3: Choose a Payment That Works for Your Budget
+
+Microf offers flexible terms so you can choose a monthly payment that fits your actual income — not what a bank thinks you should be able to afford.
+
+## Step 4: Schedule Installation
+
+Once approved, your contractor gets an instant notification and can often schedule installation within 24 hours. You get your system. Your family gets comfortable.
+
+## The Bottom Line
+
+A broken HVAC system in extreme weather is a health and safety issue, not just an inconvenience. Lease-to-own financing is a real, regulated option that gets the equipment in your home quickly — even if your credit history is imperfect.
+    `,
+  },
+  {
+    slug: "5-questions-contractors-should-ask-before-choosing-a-financing-partner",
+    title: "5 Questions Every Contractor Should Ask Before Choosing a Financing Partner",
+    excerpt:
+      "Not all financing programs are built for HVAC contractors. Here are the five questions that separate a program that helps your business from one that creates more headaches.",
+    date: "May 2024",
+    isoDate: "2024-05-14",
+    author: "Microf Team",
+    authorRole: "Microf, LLC",
+    category: "Contractors",
+    readTime: "5 min read",
+    content: `
+## 1. What Credit Score Does the Customer Need?
+
+Most traditional financing programs have a minimum credit score — often 620, 650, or higher. If your program declines customers with challenged credit, you're not solving the problem that costs you the most jobs. Ask for the actual approval rate across all credit profiles, not just the headline number.
+
+## 2. How Fast Do You Fund the Contractor?
+
+Some programs take 5–10 business days to deposit funds after installation. Others are 24–48 hours. For a contracting business that depends on predictable cash flow, the difference matters. Microf funds in 24–48 business hours — every time.
+
+## 3. What Does Enrollment Cost?
+
+Some programs charge monthly fees, annual fees, or take a percentage of every job. Microf enrollment is free with no ongoing costs. Make sure you know what you're signing up for before you commit.
+
+## 4. Is There a Dedicated Contractor Support Line?
+
+When a customer's application has a question or a job needs to be flagged, you need a real person on the phone — not a chatbot or a general customer service queue. Ask whether there's a direct contractor support number and what the typical response time is.
+
+## 5. Does It Work on a Mobile Device?
+
+Your team is in the field, not at a desk. If the application process requires a laptop or a complex portal, adoption will be low. The best programs let customers apply from a link texted to their phone while the contractor is still on-site.
+
+## The Short Version
+
+The right financing partner makes your business more efficient, not less. Evaluate on approval rates, funding speed, cost, support, and ease of use — and don't settle for a program that only works for your easiest customers.
+    `,
+  },
+  {
     slug: "how-to-close-more-hvac-sales-with-financing",
     title: "How to Close More HVAC Sales by Introducing Financing the Right Way",
     excerpt:
